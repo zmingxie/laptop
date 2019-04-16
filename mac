@@ -112,46 +112,47 @@ brew update --force # https://github.com/Homebrew/brew/issues/1151
 brew bundle --file=- <<EOF
 tap "thoughtbot/formulae"
 tap "homebrew/services"
-tap "universal-ctags/universal-ctags"
 tap "caskroom/cask"
-tap "heroku/brew"
 
 # Unix
-brew "universal-ctags", args: ["HEAD"]
+brew "exa"
 brew "git"
 brew "openssl"
-brew "rcm"
-brew "reattach-to-user-namespace"
-brew "the_silver_searcher"
+brew "coreutils"
+brew "binutils"
+brew "diffutils"
+brew "gawk"
+brew "gzip"
+brew "htop"
+brew "watch"
+brew "wget"
+brew "make"
+brew "findutils"
+brew "gnu-indent"
+brew "gnu-sed"
+brew "gnu-tar"
+brew "gnu-which"
+brew "gnutls"
+brew "grep"
+brew "file-formula"
+brew "less"
 brew "tmux"
-brew "vim"
 brew "watchman"
 brew "zsh"
+brew "vim"
+brew "wdiff"
+brew "jq"
+brew "openssh"
 
-# Heroku
-brew "heroku/brew/heroku"
-brew "parity"
 
 # GitHub
 brew "hub"
 
-# Image manipulation
-brew "imagemagick"
-
-# Programming language prerequisites and package managers
-brew "libyaml" # should come after openssl
-brew "coreutils"
-brew "yarn"
 cask "gpg-suite"
-
-# Databases
-brew "postgres", restart_service: :changed
-brew "redis", restart_service: :changed
+cask "spectacle"
+cask "visual-studio-code"
+cask "clipy"
 EOF
-
-fancy_echo "Update heroku binary ..."
-brew unlink heroku
-brew link --force heroku
 
 fancy_echo "Configuring asdf version manager ..."
 if [ ! -d "$HOME/.asdf" ]; then
